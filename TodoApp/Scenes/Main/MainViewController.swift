@@ -51,6 +51,7 @@ class MainViewController: BaseViewController {
     
 }
 
+// MARK: UISetupableType
 extension MainViewController: UISetupableType {
     
     func setupUI() {
@@ -79,6 +80,7 @@ extension MainViewController: UISetupableType {
         callListingButton.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
+                /// Goto Call listing screen
                 guard let self = self else { return }
                 let viewModel = CallListingViewModel()
                 let viewController = CallListingViewController(viewModel)
@@ -88,6 +90,7 @@ extension MainViewController: UISetupableType {
         buyListingButton.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
+                /// Goto Buy listing screen
                 guard let self = self else { return }
                 let viewModel = BuyListingViewModel()
                 let viewController = BuyListingViewController(viewModel)
@@ -97,6 +100,7 @@ extension MainViewController: UISetupableType {
         sellListingButton.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
+                /// Goto Sell listing screen
                 guard let self = self else { return }
                 let viewModel = SellListingViewModel()
                 let viewController = SellListingViewController(viewModel)

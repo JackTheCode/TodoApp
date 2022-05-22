@@ -42,6 +42,7 @@ class BuyListingViewController: BaseViewController {
     
 }
 
+// MARK: UISetupableType
 extension BuyListingViewController: UISetupableType {
     
     func setupUI() {
@@ -60,17 +61,21 @@ extension BuyListingViewController: UISetupableType {
 extension BuyListingViewController {
     
     func bindViewModel() {
+        /// Create viewModel output
         let outputs = viewModel.configure(BuyListingViewModel.Input())
+        /// Binding data to tableview
         outputs.buyListSubject.bind(to: buyListTableView.rx.items(cellIdentifier: String(describing: BuyListingTableViewCell.self), cellType: BuyListingTableViewCell.self)) { row, item, cell in
             cell.item = item
         }
         .disposed(by: disposeBag)
+        /// Handling errors
         outputs.buyListError
             .drive(onNext: { [weak self] error in
                 guard let self = self else { return }
                 self.showModal("Error", message: error.rawMessage)
             })
             .disposed(by: disposeBag)
+        /// Indicator activitys
         outputs.indicatorActivity
             .drive(onNext: { [weak self] isShowIndicator in
                 guard let self = self else { return }
@@ -81,6 +86,7 @@ extension BuyListingViewController {
     
 }
 
+// MARK: UITableViewDelegate
 extension BuyListingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

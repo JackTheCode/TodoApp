@@ -42,6 +42,7 @@ class CallListingViewController: BaseViewController {
     
 }
 
+// MARK: UISetupableType
 extension CallListingViewController: UISetupableType {
     
     func setupUI() {
@@ -60,17 +61,21 @@ extension CallListingViewController: UISetupableType {
 extension CallListingViewController {
     
     func bindViewModel() {
+        /// Create viewModel output
         let outputs = viewModel.configure(CallListingViewModel.Input())
+        /// Binding data to tableview
         outputs.callListSubject.bind(to: callListTableView.rx.items(cellIdentifier: String(describing: CallListingTableViewCell.self), cellType: CallListingTableViewCell.self)) { row, item, cell in
             cell.item = item
         }
         .disposed(by: disposeBag)
+        /// Handling errors
         outputs.callListError
             .drive(onNext: { [weak self] error in
                 guard let self = self else { return }
                 self.showModal("Error", message: error.rawMessage)
             })
             .disposed(by: disposeBag)
+        /// Indicator activity
         outputs.indicatorActivity
             .drive(onNext: { [weak self] isShowIndicator in
                 guard let self = self else { return }
@@ -81,6 +86,7 @@ extension CallListingViewController {
     
 }
 
+// MARK: UITableViewDelegate
 extension CallListingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

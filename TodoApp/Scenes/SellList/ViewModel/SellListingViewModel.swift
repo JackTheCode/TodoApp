@@ -32,6 +32,7 @@ final class SellListingViewModel: UnidirectionalViewModelType {
     private func fetchData() {
         CoreDataStack.sharedInstance.fetch()
         if CoreDataStack.sharedInstance.sellList.isEmpty {
+            /// Initialize data
             let now = Date()
             CoreDataStack.sharedInstance.store(1, name: "iPhone X", price: 150000, quantity: 1, type: 2, createOn: now)
             CoreDataStack.sharedInstance.store(2, name: "TV", price: 38000, quantity: 2, type: 2, createOn: now)

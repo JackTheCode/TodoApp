@@ -42,6 +42,7 @@ class SellListingViewController: BaseViewController {
     
 }
 
+// MARK: UISetupableType
 extension SellListingViewController: UISetupableType {
     
     func setupUI() {
@@ -60,7 +61,9 @@ extension SellListingViewController: UISetupableType {
 extension SellListingViewController {
     
     func bindViewModel() {
+        /// Create viewModel output
         let outputs = viewModel.configure(SellListingViewModel.Input())
+        /// Binding data to tableview
         outputs.sellListSubject.bind(to: sellListTableView.rx.items(cellIdentifier: String(describing: SellListingTableViewCell.self), cellType: SellListingTableViewCell.self)) { row, item, cell in
             cell.item = item
         }
@@ -69,6 +72,7 @@ extension SellListingViewController {
     
 }
 
+// MARK: UITableViewDelegate
 extension SellListingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
