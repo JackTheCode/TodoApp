@@ -10,6 +10,11 @@
 		039B038771054933A0D1E7BA /* Pods_TodoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4B29B9436CC5CA9FB468DD /* Pods_TodoAppTests.framework */; };
 		2FA6766F1628DA4AA3E06091 /* Pods_TodoApp_TodoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA315F06B3D760A85A23FEA /* Pods_TodoApp_TodoAppUITests.framework */; };
 		D8F174C2059A72612A403803 /* Pods_TodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B20AAAB936DB6FA6873ECE /* Pods_TodoApp.framework */; };
+		DA41FCEB2839D1D1002465C8 /* call_list.json in Resources */ = {isa = PBXBuildFile; fileRef = DA41FCEA2839D1D1002465C8 /* call_list.json */; };
+		DA41FCEF2839D38E002465C8 /* buy_list.json in Resources */ = {isa = PBXBuildFile; fileRef = DA41FCEE2839D38E002465C8 /* buy_list.json */; };
+		DA41FCF22839D4AA002465C8 /* ServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FCF12839D4AA002465C8 /* ServiceMock.swift */; };
+		DA41FCF42839D4D8002465C8 /* MockingCallListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FCF32839D4D8002465C8 /* MockingCallListService.swift */; };
+		DA41FCF62839D50A002465C8 /* MockingBuyListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FCF52839D50A002465C8 /* MockingBuyListService.swift */; };
 		DAE1EDA728387441000B531A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1EDA628387441000B531A /* AppDelegate.swift */; };
 		DAE1EDA928387441000B531A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1EDA828387441000B531A /* SceneDelegate.swift */; };
 		DAE1EDB328387443000B531A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE1EDB228387443000B531A /* Assets.xcassets */; };
@@ -69,6 +74,11 @@
 		9F4B485E9A16839BD242B54E /* Pods-TodoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.release.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6D7A82CEEF148A9F0033692 /* Pods-TodoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoApp/Pods-TodoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B908FD6D81BF3B4E51A0DEFB /* Pods-TodoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoApp.release.xcconfig"; path = "Target Support Files/Pods-TodoApp/Pods-TodoApp.release.xcconfig"; sourceTree = "<group>"; };
+		DA41FCEA2839D1D1002465C8 /* call_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = call_list.json; sourceTree = "<group>"; };
+		DA41FCEE2839D38E002465C8 /* buy_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = buy_list.json; sourceTree = "<group>"; };
+		DA41FCF12839D4AA002465C8 /* ServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceMock.swift; sourceTree = "<group>"; };
+		DA41FCF32839D4D8002465C8 /* MockingCallListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingCallListService.swift; sourceTree = "<group>"; };
+		DA41FCF52839D50A002465C8 /* MockingBuyListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingBuyListService.swift; sourceTree = "<group>"; };
 		DA84147B69FD5D64B6C96516 /* Pods-TodoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TodoAppTests/Pods-TodoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE1EDA328387441000B531A /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE1EDA628387441000B531A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +161,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DA41FCE92839D1A9002465C8 /* LocalJson */ = {
+			isa = PBXGroup;
+			children = (
+				DA41FCEA2839D1D1002465C8 /* call_list.json */,
+				DA41FCEE2839D38E002465C8 /* buy_list.json */,
+			);
+			path = LocalJson;
+			sourceTree = "<group>";
+		};
+		DA41FCF02839D4AA002465C8 /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				DA41FCF12839D4AA002465C8 /* ServiceMock.swift */,
+				DA41FCF32839D4D8002465C8 /* MockingCallListService.swift */,
+				DA41FCF52839D50A002465C8 /* MockingBuyListService.swift */,
+			);
+			path = Mocking;
+			sourceTree = "<group>";
+		};
 		DAE1ED9A28387441000B531A = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +224,8 @@
 		DAE1EDBF28387443000B531A /* TodoAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				DA41FCF02839D4AA002465C8 /* Mocking */,
+				DA41FCE92839D1A9002465C8 /* LocalJson */,
 				DAE1EDC028387443000B531A /* TodoAppTests.swift */,
 			);
 			path = TodoAppTests;
@@ -531,6 +562,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA41FCEF2839D38E002465C8 /* buy_list.json in Resources */,
+				DA41FCEB2839D1D1002465C8 /* call_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +719,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA41FCF42839D4D8002465C8 /* MockingCallListService.swift in Sources */,
 				DAE1EDC128387443000B531A /* TodoAppTests.swift in Sources */,
+				DA41FCF22839D4AA002465C8 /* ServiceMock.swift in Sources */,
+				DA41FCF62839D50A002465C8 /* MockingBuyListService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +869,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6D7A82CEEF148A9F0033692 /* Pods-TodoApp.debug.xcconfig */;
 			buildSettings = {
+				APP_GROUP_ID = group.com.jackthecode.TodoApp;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TodoApp/TodoApp.entitlements;
@@ -863,6 +900,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B908FD6D81BF3B4E51A0DEFB /* Pods-TodoApp.release.xcconfig */;
 			buildSettings = {
+				APP_GROUP_ID = group.com.jackthecode.TodoApp;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TodoApp/TodoApp.entitlements;

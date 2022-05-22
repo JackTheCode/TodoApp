@@ -20,6 +20,30 @@ class TodoAppTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testCallListServiceMock() async {
+        let mockingCallListService = MockingCallListService()
+        let result = await mockingCallListService.getCallList()
+        switch result {
+        case .success(let callList):
+            XCTAssertEqual(callList.count, 3)
+            XCTAssertEqual(callList.first?.name, "Jason White")
+        case .failure(let error):
+            XCTFail(error.rawMessage)
+        }
+    }
+    
+    func testBuyListServiceMock() async {
+        let mockingBuyListService = MockingBuyListService()
+        let result = await mockingBuyListService.getBuyList()
+        switch result {
+        case .success(let buyList):
+            XCTAssertEqual(buyList.count, 3)
+            XCTAssertEqual(buyList.first?.name, "MacBook Pro")
+        case .failure(let error):
+            XCTFail(error.rawMessage)
+        }
+    }
 
     func testCallListFetchData() {
         var data: [Call] = [Call]()

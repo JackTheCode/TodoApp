@@ -71,7 +71,7 @@ final class CoreDataStack {
 
 class CustomPersistantContainer: NSPersistentContainer {
 
-    static let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.jackthecode.TodoApp")!
+    static let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Bundle.main.object(forInfoDictionaryKey: "AppGroupId") as! String)!
     let storeDescription = NSPersistentStoreDescription(url: url)
 
     override class func defaultDirectoryURL() -> URL {

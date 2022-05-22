@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol BuyistServiceInterface {
+protocol BuyListServiceInterface {
     func getBuyList() async -> Result<[Buy], RequestError>
 }
 
-struct BuyListService: HttpClient, BuyistServiceInterface {
+struct BuyListService: HttpClient, BuyListServiceInterface {
     
     func getBuyList() async -> Result<[Buy], RequestError> {
         return await request(BuyListEndpoint.buyList, model: [Buy].self)
